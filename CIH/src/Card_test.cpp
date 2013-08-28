@@ -14,9 +14,9 @@ TEST(CardTest, GetDefaultValue) {
 	ASSERT_EQ(Card::none, card.getValue());
 }
 
-TEST(CardTest, CheckPresetValue) {
-	Card card(1);
-	ASSERT_EQ(1, card.getValue());
+TEST(CardTest, PresetValue) {
+	Card card(Card::Ace);
+	ASSERT_EQ(Card::Ace, card.getValue());
 }
 
 TEST(CardTest, GetDefaultColor) {
@@ -24,7 +24,7 @@ TEST(CardTest, GetDefaultColor) {
 	ASSERT_EQ(Card::none, card.getColor());
 }
 
-TEST(CardTest, PresetValue) {
-	Card card(1, Card::Spade);
+TEST(CardTest, PresetColor) {
+	Card card(Card::Ace, Card::Spade);
 	ASSERT_EQ(Card::Spade, card.getColor());
 }

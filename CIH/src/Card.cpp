@@ -7,7 +7,7 @@
 
 #include "Card.h"
 
-Card::Card(int v, Color c) : value(v), color(c) {
+Card::Card(Value v, Color c) : value(v), color(c) {
 	// Empty
 }
 
@@ -15,10 +15,10 @@ Card::~Card() {
 	// Empty
 }
 
-int Card::getValue() const {
+Card::Value Card::getValue() const {
 	return value;
 }
 
-int Card::getColor() const {
+Card::Color Card::getColor() const {
 	return color;
 }
