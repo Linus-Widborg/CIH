@@ -18,6 +18,8 @@ public:
 	int numberOfCardsLeft() const;
 	Card getCard();
 
+	static const int MaxDeckSize = 52;
+
 private:
 	std::stack<Card> deckOfCards;
 };

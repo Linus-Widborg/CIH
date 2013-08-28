@@ -8,7 +8,7 @@
 #include "Deck.h"
 
 Deck::Deck() {
-	for (int i = 0; i < 52; i++) {
+	for (int i = 0; i < MaxDeckSize; i++) {
 		deckOfCards.push(Card());
 	}
 }
@@ -22,7 +22,10 @@ int Deck::numberOfCardsLeft() const {
 }
 
 Card Deck::getCard() {
-	Card card = deckOfCards.top();
-	deckOfCards.pop();
+	Card card;
+	if (!deckOfCards.empty()) {
+		card = deckOfCards.top();
+		deckOfCards.pop();
+	}
 	return card;
 }
