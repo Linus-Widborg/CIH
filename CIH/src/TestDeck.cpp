@@ -10,9 +10,9 @@
 #include <gtest/gtest.h>
 
 
-TEST(TestDeck, CreateDeck) {
+TEST(TestDeck, ADeckSholudHave52Cards) {
 	Deck deck;
-	ASSERT_EQ(52, deck.numberOfCardsLeft());
+	ASSERT_EQ(static_cast<int>(Deck::MaxDeckSize), deck.numberOfCardsLeft());
 }
 
 TEST(TestDeck, TakeOneCardFromDeck) {
@@ -21,7 +21,7 @@ TEST(TestDeck, TakeOneCardFromDeck) {
 	Card card = deck.getCard();
 
 	// Execute & Verify
-	ASSERT_EQ(51, deck.numberOfCardsLeft());
+	ASSERT_EQ(Deck::MaxDeckSize - 1, deck.numberOfCardsLeft());
 }
 
 TEST(TestDeck, TakeOneCardFromDeckWithNoMoreCardsLeft) {
