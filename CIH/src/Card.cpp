@@ -7,7 +7,7 @@
 
 #include "Card.h"
 
-Card::Card(Value v, Color c) : value(v), color(c) {
+Card::Card(int v, int c) : value(v), color(c) {
 	// Empty
 }
 
@@ -15,10 +15,14 @@ Card::~Card() {
 	// Empty
 }
 
-Card::Value Card::getValue() const {
+int Card::getValue() const {
 	return value;
 }
 
-Card::Color Card::getColor() const {
+int Card::getColor() const {
 	return color;
+}
+
+bool operator==(const Card& lhs, const Card& rhs) {
+	return lhs.getValue() == rhs.getValue() && lhs.getColor() == rhs.getColor();
 }

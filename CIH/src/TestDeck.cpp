@@ -36,3 +36,16 @@ TEST(TestDeck, TakeOneCardFromDeckWithNoMoreCardsLeft) {
 	// Verify
 	ASSERT_EQ(0, deck.numberOfCardsLeft());
 }
+
+TEST(TestDeck, ADeckWithDifferentCards) {
+	// Initialize
+	Deck deck;
+
+	// Execute & Verify
+	ASSERT_TRUE(Card(King, Heart) == deck.getCard());
+	Card card;
+	for (int i = Deck::MaxDeckSize - 1; i > 26; i--) {
+		card = deck.getCard();
+	}
+	ASSERT_TRUE(Card(King, Club) == deck.getCard());
+}
