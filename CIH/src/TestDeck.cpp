@@ -44,7 +44,7 @@ TEST(TestDeck, ADeckWithDifferentCards) {
 	// Execute & Verify
 	ASSERT_TRUE(Card(King, Heart) == deck.getCard());
 	Card card;
-	for (int i = Deck::MaxDeckSize - 1; i > 26; i--) {
+	while (deck.numberOfCardsLeft() > 26) {
 		card = deck.getCard();
 	}
 	ASSERT_TRUE(Card(King, Club) == deck.getCard());
