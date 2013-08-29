@@ -8,40 +8,43 @@
 #ifndef CARD_H_
 #define CARD_H_
 
+enum Color {
+	none,
+	Spade,
+	Club,
+	Dimond,
+	Heart
+};
+
+enum Value {
+	Joker,
+	Ace,
+	Two,
+	Three,
+	Four,
+	Five,
+	Six,
+	Seven,
+	Eigth,
+	Nine,
+	Ten,
+	Jack,
+	Queen,
+	King
+};
+
 class Card {
 public:
-	enum Color {
-		none,
-		Spade,
-		Club,
-		Dimond,
-		Heart};
-	enum Value {
-		Joker,
-		Ace,
-		Two,
-		Three,
-		Four,
-		Five,
-		Six,
-		Seven,
-		Eigth,
-		Nine,
-		Ten,
-		Jack,
-		Queen,
-		King
-	};
-
-	Card(Value v = Joker, Color c = none);
+	Card(int v = Joker, int c = none);
 	virtual ~Card();
-	Value getValue() const;
-	Color getColor() const;
-
+	int getValue() const;
+	int getColor() const;
 
 private:
-	Value value;
-	Color color;
+	int value;
+	int color;
 };
+
+bool operator==(const Card& lhs, const Card& rhs);
 
 #endif /* CARD_H_ */
