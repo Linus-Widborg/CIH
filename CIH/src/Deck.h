@@ -7,7 +7,7 @@
 
 #ifndef DECK_H_
 #define DECK_H_
-#include <stack>
+#include <vector>
 #include "Card.h"
 
 
@@ -17,13 +17,15 @@ public:
 	virtual ~Deck();
 
 	struct Empty_deck {};
+
 	int numberOfCardsLeft() const;
 	Card getCard() throw (Empty_deck);
+	Card getRandomCard() throw (Empty_deck);
 
 	static const int MaxDeckSize = 52;
 
 private:
-	std::stack<Card> deckOfCards;
+	std::vector<Card> deckOfCards;
 };
 
 #endif /* DECK_H_ */

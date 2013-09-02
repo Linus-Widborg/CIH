@@ -64,3 +64,15 @@ TEST(TestDeck, ADeckWithDifferentCards) {
 	}
 	ASSERT_TRUE(Card(King, Club) == deck.getCard());
 }
+
+TEST(TestDeck, GetRandomCard) {
+	// Initialize
+	Deck deck;
+
+	// Execute
+	Card randomCard = deck.getRandomCard();
+
+	// Verify
+	ASSERT_EQ(Deck::MaxDeckSize - 1, deck.numberOfCardsLeft());
+
+}
