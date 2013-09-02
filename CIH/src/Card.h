@@ -15,6 +15,8 @@ enum Color {
 	Dimond,
 	Heart
 };
+Color& operator++(Color&);
+Color operator++(Color&, int);
 
 enum Value {
 	Joker,
@@ -32,17 +34,19 @@ enum Value {
 	Queen,
 	King
 };
+Value& operator++(Value& value);
+Value operator++(Value& value, int);
 
 class Card {
 public:
-	Card(int v = Joker, int c = none);
+	Card(Value v = Joker, Color c = none);
 	virtual ~Card();
-	int getValue() const;
-	int getColor() const;
+	Value getValue() const;
+	Color getColor() const;
 
 private:
-	int value;
-	int color;
+	Value value;
+	Color color;
 };
 
 bool operator==(const Card& lhs, const Card& rhs);

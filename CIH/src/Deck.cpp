@@ -8,8 +8,8 @@
 #include "Deck.h"
 
 Deck::Deck() {
-	for (int color = Spade; color <= Heart; color++) {
-		for (int value = Ace; value <= King; value++) {
+	for (Color color = Spade; color <= Heart; color++) {
+		for (Value value = Ace; value <= King; value++) {
 			deckOfCards.push(Card(value, color));
 		}
 	}

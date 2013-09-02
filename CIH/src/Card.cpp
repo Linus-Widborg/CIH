@@ -6,8 +6,9 @@
  */
 
 #include "Card.h"
+#include <iostream>
 
-Card::Card(int v, int c) : value(v), color(c) {
+Card::Card(Value v, Color c) : value(v), color(c) {
 	// Empty
 }
 
@@ -15,12 +16,36 @@ Card::~Card() {
 	// Empty
 }
 
-int Card::getValue() const {
+Value Card::getValue() const {
 	return value;
 }
 
-int Card::getColor() const {
+Color Card::getColor() const {
 	return color;
+}
+
+//++Color
+Color& operator++(Color& color) {
+	color = static_cast<Color>(color + 1);
+	return color;
+}
+
+//Color++
+Color operator++(Color& color, int) {
+	Color tmp = color;
+	++color;
+	return tmp;
+}
+
+Value& operator++(Value& value) {
+	value = static_cast<Value>(value + 1);
+	return value;
+}
+
+Value operator++(Value& value, int) {
+	Value tmp = value;
+	++value;
+	return tmp;
 }
 
 bool operator==(const Card& lhs, const Card& rhs) {
