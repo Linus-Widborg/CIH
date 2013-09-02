@@ -15,8 +15,10 @@ class Deck {
 public:
 	Deck();
 	virtual ~Deck();
+
+	struct Empty_deck {};
 	int numberOfCardsLeft() const;
-	Card getCard();
+	Card getCard() throw (Empty_deck);
 
 	static const int MaxDeckSize = 52;
 

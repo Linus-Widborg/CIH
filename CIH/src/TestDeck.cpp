@@ -24,17 +24,32 @@ TEST(TestDeck, TakeOneCardFromDeck) {
 	ASSERT_EQ(Deck::MaxDeckSize - 1, deck.numberOfCardsLeft());
 }
 
-TEST(TestDeck, TakeOneCardFromDeckWithNoMoreCardsLeft) {
+TEST(TestDeck, CheckEmptyDeck) {
 	// Initialize
 	Deck deck;
 
 	// Execute
-	for (int i = 0; i < Deck::MaxDeckSize + 1; i++) {
+	for (int i = 0; i < Deck::MaxDeckSize; i++) {
 		Card card = deck.getCard();
 	}
 
 	// Verify
 	ASSERT_EQ(0, deck.numberOfCardsLeft());
+}
+
+TEST(TestDeck, TakeOneCardFromDeckWithNoMoreCardsLeft) {
+	// Initialize
+	Deck deck;
+	for (int i = 0; i < Deck::MaxDeckSize; i++) {
+			Card card = deck.getCard();
+	}
+
+	// Execute and Verify
+	ASSERT_THROW(
+	{
+		Card card = deck.getCard();
+	},
+	Deck::Empty_deck);
 }
 
 TEST(TestDeck, ADeckWithDifferentCards) {

@@ -23,9 +23,12 @@ int Deck::numberOfCardsLeft() const {
 	return deckOfCards.size();
 }
 
-Card Deck::getCard() {
+Card Deck::getCard() throw (Empty_deck) {
 	Card card;
-	if (!deckOfCards.empty()) {
+	if (deckOfCards.empty()) {
+		throw Empty_deck();
+	}
+	else {
 		card = deckOfCards.top();
 		deckOfCards.pop();
 	}
