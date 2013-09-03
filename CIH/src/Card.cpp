@@ -26,7 +26,12 @@ Color Card::getColor() const {
 
 //++Color
 Color& operator++(Color& color) {
-	color = static_cast<Color>(color + 1);
+	if (color == Heart) {
+		color = none;
+	}
+	else {
+		color = static_cast<Color>(color + 1);
+	}
 	return color;
 }
 
@@ -38,7 +43,12 @@ Color operator++(Color& color, int) {
 }
 
 Value& operator++(Value& value) {
-	value = static_cast<Value>(value + 1);
+	if (value == King) {
+		value = Joker;
+	}
+	else {
+		value = static_cast<Value>(value + 1);
+	}
 	return value;
 }
 

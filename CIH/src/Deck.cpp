@@ -8,11 +8,17 @@
 #include "Deck.h"
 
 #include <cstdlib>
+#include <iostream>
 
 Deck::Deck() {
-	for (Color color = Spade; color <= Heart; color++) {
-		for (Value value = Ace; value <= King; value++) {
-			deckOfCards.push_back(Card(value, color));
+	for (Color color = Spade; color > none && color <= Heart; color++) {
+		for (Value value = Ace; value > Joker && value <= King; value++) {
+			try {
+				deckOfCards.push_back(Card(value, color));
+			}
+			catch (std::bad_alloc &err) {
+				std::cout << err.what() << std::endl;
+			}
 		}
 	}
 }
@@ -21,7 +27,7 @@ Deck::~Deck() {
 	// Empty
 }
 
-int Deck::numberOfCardsLeft() const {
+int Deck::numberOfCards() const {
 	return deckOfCards.size();
 }
 
@@ -41,7 +47,7 @@ Card Deck::getRandomCard() throw (Empty_deck) {
 	if (deckOfCards.empty()) {
 		throw Empty_deck();
 	}
-	int randomNumber = rand() % numberOfCardsLeft();
+	int randomNumber = rand() % numberOfCards();
 	Card randomCard = deckOfCards[randomNumber];
 	deckOfCards.erase(deckOfCards.begin() + randomNumber);
 	return randomCard;

@@ -18,7 +18,7 @@ public:
 
 	struct Empty_deck {};
 
-	int numberOfCardsLeft() const;
+	int numberOfCards() const;
 	Card getCard() throw (Empty_deck);
 	Card getRandomCard() throw (Empty_deck);
 

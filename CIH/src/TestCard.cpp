@@ -28,3 +28,21 @@ TEST(CardTest, PresetColor) {
 	Card card(Ace, Spade);
 	ASSERT_EQ(Spade, card.getColor());
 }
+
+TEST(ColorTest, IncrementOneBeyondEnd) {
+	// Initialize
+	Color color = Heart;
+	// Execute
+	++color;
+	// Verify
+	ASSERT_EQ(none, color);
+}
+
+TEST(ValueTest, IncrementOneBeyondEnd) {
+	// Initialize
+	Value value = King;
+	// Execute
+	++value;
+	// Verify
+	ASSERT_EQ(Joker, value);
+}

@@ -12,7 +12,7 @@
 
 TEST(TestDeck, ADeckSholudHave52Cards) {
 	Deck deck;
-	ASSERT_EQ(static_cast<int>(Deck::MaxDeckSize), deck.numberOfCardsLeft());
+	ASSERT_EQ(static_cast<int>(Deck::MaxDeckSize), deck.numberOfCards());
 }
 
 TEST(TestDeck, TakeOneCardFromDeck) {
@@ -21,7 +21,7 @@ TEST(TestDeck, TakeOneCardFromDeck) {
 	Card card = deck.getCard();
 
 	// Execute & Verify
-	ASSERT_EQ(Deck::MaxDeckSize - 1, deck.numberOfCardsLeft());
+	ASSERT_EQ(Deck::MaxDeckSize - 1, deck.numberOfCards());
 }
 
 TEST(TestDeck, CheckEmptyDeck) {
@@ -34,7 +34,7 @@ TEST(TestDeck, CheckEmptyDeck) {
 	}
 
 	// Verify
-	ASSERT_EQ(0, deck.numberOfCardsLeft());
+	ASSERT_EQ(0, deck.numberOfCards());
 }
 
 TEST(TestDeck, TakeOneCardFromDeckWithNoMoreCardsLeft) {
@@ -59,7 +59,7 @@ TEST(TestDeck, ADeckWithDifferentCards) {
 	// Execute & Verify
 	ASSERT_TRUE(Card(King, Heart) == deck.getCard());
 	Card card;
-	while (deck.numberOfCardsLeft() > 26) {
+	while (deck.numberOfCards() > 26) {
 		card = deck.getCard();
 	}
 	ASSERT_TRUE(Card(King, Club) == deck.getCard());
@@ -73,6 +73,6 @@ TEST(TestDeck, GetRandomCard) {
 	Card randomCard = deck.getRandomCard();
 
 	// Verify
-	ASSERT_EQ(Deck::MaxDeckSize - 1, deck.numberOfCardsLeft());
+	ASSERT_EQ(Deck::MaxDeckSize - 1, deck.numberOfCards());
 
 }
