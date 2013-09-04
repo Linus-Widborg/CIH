@@ -28,6 +28,13 @@ TEST(CardTest, PresetColor) {
 	Card card(Ace, Spade);
 	ASSERT_EQ(Spade, card.getColor());
 }
+TEST(CardTest, ToString) {
+	// Initialize and Execute
+	Card card(Two, Club);
+
+	// Verify
+	ASSERT_EQ("C2", card.toString());
+}
 
 TEST(ColorTest, IncrementOneBeyondEnd) {
 	// Initialize

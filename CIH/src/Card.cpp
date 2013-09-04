@@ -7,6 +7,7 @@
 
 #include "Card.h"
 #include <iostream>
+#include <sstream>
 
 Card::Card(Value v, Color c) : value(v), color(c) {
 	// Empty
@@ -22,6 +23,29 @@ Value Card::getValue() const {
 
 Color Card::getColor() const {
 	return color;
+}
+
+std::string Card::toString() const {
+	std::ostringstream result;
+	switch (color) {
+		case Spade:
+			result << "S";
+			break;
+		case Club:
+			result << "C";
+			break;
+		case Dimond:
+			result << "D";
+			break;
+		case Heart:
+			result << "H";
+			break;
+		default:
+			result << "n";
+			break;
+	}
+	result << value;
+	return result.str();
 }
 
 //++Color

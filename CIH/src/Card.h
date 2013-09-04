@@ -7,6 +7,7 @@
 
 #ifndef CARD_H_
 #define CARD_H_
+#include <string>
 
 enum Color {
 	none,
@@ -43,6 +44,7 @@ public:
 	virtual ~Card();
 	Value getValue() const;
 	Color getColor() const;
+	std::string toString() const;
 
 private:
 	Value value;
