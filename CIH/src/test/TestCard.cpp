@@ -5,7 +5,7 @@
  *      Author: liwid
  */
 
-#include "Card.h"
+#include "../Card.h"
 #include <gtest/gtest.h>
 
 

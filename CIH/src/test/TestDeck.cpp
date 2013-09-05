@@ -5,8 +5,8 @@
  *      Author: liwid
  */
 
-#include "Card.h"
-#include "Deck.h"
+#include "../Card.h"
+#include "../Deck.h"
 #include <gtest/gtest.h>
 
 
