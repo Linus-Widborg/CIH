@@ -35,6 +35,12 @@ TEST(CardTest, ToString) {
 	// Verify
 	ASSERT_EQ("C2", card.toString());
 }
+TEST(CardTest, PrintKingOfHeartsAsHK) {
+	// Initialize and Execute
+	Card card(King, Heart);
+	// Verify
+	ASSERT_EQ("HK", card.toString());
+}
 
 TEST(ColorTest, IncrementOneBeyondEnd) {
 	// Initialize
