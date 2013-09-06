@@ -76,3 +76,5 @@ TEST(TestDeck, GetRandomCard) {
 	ASSERT_EQ(Deck::MaxDeckSize - 1, deck.numberOfCards());
 
 }
+
+

@@ -47,6 +47,7 @@ Card Deck::getRandomCard() throw (Empty_deck) {
 	if (deckOfCards.empty()) {
 		throw Empty_deck();
 	}
+	srand(time(0));
 	int randomNumber = rand() % numberOfCards();
 	Card randomCard = deckOfCards[randomNumber];
 	deckOfCards.erase(deckOfCards.begin() + randomNumber);
