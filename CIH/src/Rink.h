@@ -22,11 +22,13 @@ enum Positions {
 
 class Rink {
 public:
+	static const int numberOfPlayers = 12;
+
 	Rink();
 	virtual ~Rink();
 	Card getPosition(const Positions pos) const;
 private:
-	Card players[12];
+	Card players[numberOfPlayers];
 	Deck deck;
 };
 

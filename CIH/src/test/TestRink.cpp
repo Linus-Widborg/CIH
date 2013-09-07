@@ -13,7 +13,7 @@ TEST(TestRink, Initialize) {
 	// Initialize and Execute
 	Rink rink;
 	// Verify
-	for (Positions pos = GK; static_cast<int>(pos) < 12; pos++) {
+	for (Positions pos = GK; static_cast<int>(pos) < Rink::numberOfPlayers; pos++) {
 		ASSERT_NE(none, rink.getPosition(pos).getColor());
 	}
 }

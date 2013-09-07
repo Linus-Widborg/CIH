@@ -8,7 +8,7 @@
 #include "Rink.h"
 
 Rink::Rink() {
-	for (Positions pos = GK; static_cast<int>(pos) < 12; pos++) {
+	for (Positions pos = GK; static_cast<int>(pos) < numberOfPlayers; pos++) {
 		players[pos] = deck.getRandomCard();
 	}
 }
