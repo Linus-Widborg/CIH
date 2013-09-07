@@ -28,6 +28,8 @@ public:
 	virtual ~Rink();
 	Card getPosition(const Positions pos) const;
 	void printRink() const;
+	void attack(const Positions pos, const Card card);
+	void replacePosition(const Positions pos, const Card card);
 
 private:
 	Card players[numberOfPlayers];

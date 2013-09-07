@@ -12,7 +12,7 @@
 
 Deck::Deck() {
 	for (Color color = Spade; color > none && color <= Heart; color++) {
-		for (Value value = Ace; value > Joker && value <= King; value++) {
+		for (Value value = Ace; value > zero && value <= King; value++) {
 			try {
 				deckOfCards.push_back(Card(value, color));
 			}

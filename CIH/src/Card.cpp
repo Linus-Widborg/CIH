@@ -41,25 +41,28 @@ std::string Card::toString() const {
 			result << "H";
 			break;
 		default:
-			result << "n";
+			result << "";
 			break;
 	}
 	switch (value) {
-		case 1:
-			result << "A";
-			break;
-		case 11:
-			result << "Kn";
-			break;
-		case 12:
-			result << "Q";
-			break;
-		case 13:
-			result << "K";
-			break;
-		default:
-			result << value;
-			break;
+	case zero:
+		result << "";
+		break;
+	case Ace:
+		result << "A";
+		break;
+	case Jack:
+		result << "Kn";
+		break;
+	case Queen:
+		result << "Q";
+		break;
+	case King:
+		result << "K";
+		break;
+	default:
+		result << value;
+		break;
 	}
 	return result.str();
 }
@@ -84,7 +87,7 @@ Color operator++(Color& color, int) {
 
 Value& operator++(Value& value) {
 	if (value == King) {
-		value = Joker;
+		value = zero;
 	}
 	else {
 		value = static_cast<Value>(value + 1);

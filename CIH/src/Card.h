@@ -20,7 +20,7 @@ Color& operator++(Color&);
 Color operator++(Color&, int);
 
 enum Value {
-	Joker,
+	zero,
 	Ace,
 	Two,
 	Three,
@@ -40,7 +40,7 @@ Value operator++(Value& value, int);
 
 class Card {
 public:
-	Card(Value v = Joker, Color c = none);
+	Card(Value v = zero, Color c = none);
 	virtual ~Card();
 	Value getValue() const;
 	Color getColor() const;

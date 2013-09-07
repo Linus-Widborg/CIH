@@ -11,7 +11,7 @@
 
 TEST(CardTest, GetDefaultValue) {
 	Card card;
-	ASSERT_EQ(none, card.getValue());
+	ASSERT_EQ(zero, card.getValue());
 }
 
 TEST(CardTest, PresetValue) {
@@ -48,7 +48,7 @@ TEST(ColorTest, IncrementOneBeyondEnd) {
 	// Execute
 	++color;
 	// Verify
-	ASSERT_EQ(none, color);
+	ASSERT_EQ(zero, color);
 }
 
 TEST(ValueTest, IncrementOneBeyondEnd) {
@@ -57,5 +57,5 @@ TEST(ValueTest, IncrementOneBeyondEnd) {
 	// Execute
 	++value;
 	// Verify
-	ASSERT_EQ(Joker, value);
+	ASSERT_EQ(zero, value);
 }
