@@ -10,6 +10,8 @@
 #include <string>
 
 #include "Deck.h"
+#include "Rink.h"
+
 using namespace std;
 
 int positionToIndex(const string position) {
@@ -36,46 +38,48 @@ int positionToIndex(const string position) {
 
 int main() {
 	cout << "Welcome to CIH" << endl;
-	Deck deck;
-	Card rink[12];
-	cout << "GK  LD  RD  LW  CE  RW " << endl;
-	cout << "-----------------------" << endl;
-	for (int i = 0; i < 12; i++) {
-		rink[i] = deck.getRandomCard();
-		cout.width(3);
-		cout << left << rink[i].toString() << " ";
-		if (i == 5) {
-			cout << endl;
-		}
-	}
-	cout << endl;
-	string position;
-	Card attackingCard;
-	int index;
-	int player = 1;
-	while (true) {
-		attackingCard = deck.getRandomCard();
-		cout << "Spelare " << player << " ditt kort är " << attackingCard.toString() << endl;
-		cout << "Välj var du vill anfalla." << endl;
-		cin >> position;
-		index = positionToIndex(position) + (6 * (player - 1));
-		if (static_cast<int>(attackingCard.getValue()) > static_cast<int>(rink[index].getValue())) {
-			if (index == 0 || index == 6) {
-				cout << "Mål!" << endl;
-			}
-			else {
-				cout << "Du tog dig förbi!" << endl;
-			}
-			rink[index] = Card();
-		}
-		else {
-			if (player == 1) {
-				player = 2;
-			}
-			else {
-				player = 1;
-			}
-		}
-	}
+	Rink rink;
+	rink.printRink();
+//	Deck deck;
+//	Card rink[12];
+//	cout << "GK  LD  RD  LW  CE  RW " << endl;
+//	cout << "-----------------------" << endl;
+//	for (int i = 0; i < 12; i++) {
+//		rink[i] = deck.getRandomCard();
+//		cout.width(3);
+//		cout << left << rink[i].toString() << " ";
+//		if (i == 5) {
+//			cout << endl;
+//		}
+//	}
+//	cout << endl;
+//	string position;
+//	Card attackingCard;
+//	int index;
+//	int player = 1;
+//	while (true) {
+//		attackingCard = deck.getRandomCard();
+//		cout << "Spelare " << player << " ditt kort är " << attackingCard.toString() << endl;
+//		cout << "Välj var du vill anfalla." << endl;
+//		cin >> position;
+//		index = positionToIndex(position) + (6 * (player - 1));
+//		if (static_cast<int>(attackingCard.getValue()) > static_cast<int>(rink[index].getValue())) {
+//			if (index == 0 || index == 6) {
+//				cout << "Mål!" << endl;
+//			}
+//			else {
+//				cout << "Du tog dig förbi!" << endl;
+//			}
+//			rink[index] = Card();
+//		}
+//		else {
+//			if (player == 1) {
+//				player = 2;
+//			}
+//			else {
+//				player = 1;
+//			}
+//		}
+//	}
 	return 0;
 }

@@ -27,6 +27,8 @@ public:
 	Rink();
 	virtual ~Rink();
 	Card getPosition(const Positions pos) const;
+	void printRink() const;
+
 private:
 	Card players[numberOfPlayers];
 	Deck deck;
