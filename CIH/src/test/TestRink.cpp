@@ -40,6 +40,94 @@ TEST(TestRink, AttackFirstRowAndFail) {
 	ASSERT_EQ(defendingCard, rink.getPosition(CE));
 }
 
+TEST(TestRink, FailToAttackLDWithoutSuccesfullAttackOfLWorCE) {
+	// Initialize
+	Rink rink;
+	Card defendingCard = Card(Two, Spade);
+	rink.replacePosition(LD, defendingCard);
+	// Execute
+	Card attackingCard = Card(Five, Club);
+	rink.attack(LD, attackingCard);
+	// Verify
+	ASSERT_EQ(defendingCard, rink.getPosition(LD));
+}
+
+TEST(TestRink, SuccedToAttackLDWithSuccesfullAttackOfLW) {
+	// Initialize
+	Rink rink;
+	Card defendingCard = Card(Two, Spade);
+	rink.replacePosition(LD, defendingCard);
+	rink.replacePosition(LW, Card());
+	// Execute
+	Card attackingCard = Card(Five, Club);
+	rink.attack(LD, attackingCard);
+	// Verify
+	ASSERT_TRUE(rink.emptyPosition(LD));
+}
+
+TEST(TestRink, SuccedToAttackLDWithSuccesfullAttackOfCE) {
+	// Initialize
+	Rink rink;
+	Card defendingCard = Card(Two, Spade);
+	rink.replacePosition(LD, defendingCard);
+	rink.replacePosition(CE, Card());
+	// Execute
+	Card attackingCard = Card(Five, Club);
+	rink.attack(LD, attackingCard);
+	// Verify
+	ASSERT_TRUE(rink.emptyPosition(LD));
+}
+
+TEST(TestRink, FailToAttackRDWithoutSuccesfullAttackOfRWorCE) {
+	// Initialize
+	Rink rink;
+	Card defendingCard = Card(Two, Spade);
+	rink.replacePosition(RD, defendingCard);
+	// Execute
+	Card attackingCard = Card(Five, Club);
+	rink.attack(RD, attackingCard);
+	// Verify
+	ASSERT_EQ(defendingCard, rink.getPosition(RD));
+}
+
+TEST(TestRink, FailToAttackGKWithoutSuccesfullAttackOfForwardAndDefender) {
+	// Initialize
+	Rink rink;
+	Card defendingCard = Card(Two, Spade);
+	rink.replacePosition(GK, defendingCard);
+	// Execute
+	Card attackingCard = Card(Five, Club);
+	rink.attack(GK, attackingCard);
+	// Verify
+	ASSERT_EQ(defendingCard, rink.getPosition(GK));
+}
+
+TEST(TestRink, SuccedToAttackGK) {
+	// Initialize
+	Rink rink;
+	Card defendingCard = Card(Two, Spade);
+	rink.replacePosition(GK, defendingCard);
+	rink.replacePosition(LW, Card());
+	rink.replacePosition(LD, Card());
+	// Execute
+	Card attackingCard = Card(Five, Club);
+	rink.attack(GK, attackingCard);
+	// Verify
+	ASSERT_TRUE(rink.emptyPosition(GK));
+}
+
+TEST(TestRink, AttackFirstRowWithEqualValueAndFail) {
+	// Initialize
+	Rink rink;
+	Card defendingCard = Card(King, Heart);
+	rink.replacePosition(CE, defendingCard);
+	// Execute
+	Card attackingCard = defendingCard;
+	rink.attack(CE, attackingCard);
+	// Verify
+	ASSERT_EQ(defendingCard, rink.getPosition(CE));
+}
+
 TEST(TestPositions, PostIncrement) {
 	// Initialize
 	Positions pos = GK;

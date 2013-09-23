@@ -38,13 +38,35 @@ void Rink::printRink() const {
 }
 
 void Rink::attack(const Positions pos, const Card card) {
-	if (card.getValue() > players[pos].getValue()) {
+	if (validAttack(pos) && card.getValue() > players[pos].getValue()) {
 		players[pos] = Card(zero, none);
 	}
 }
 
 void Rink::replacePosition(const Positions pos, const Card card) {
 	players[pos] = card;
+}
+
+bool Rink::emptyPosition(const Positions pos) const {
+	return players[pos].getValue() == zero;
+}
+
+bool Rink::validAttack(const Positions pos) const {
+	bool result = true;
+	switch (pos) {
+		case LD:
+			result = emptyPosition(CE) || emptyPosition(LW);
+			break;
+		case RD:
+			result = emptyPosition(CE) || emptyPosition(RW);
+			break;
+		case GK:
+			result = (validAttack(LD) || validAttack(RD)) && (emptyPosition(LD) || emptyPosition(RD));
+			break;
+		default:
+			break;
+	}
+	return result;
 }
 
 //++position

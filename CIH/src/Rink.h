@@ -30,10 +30,13 @@ public:
 	void printRink() const;
 	void attack(const Positions pos, const Card card);
 	void replacePosition(const Positions pos, const Card card);
+	bool emptyPosition(const Positions pos) const;
 
 private:
 	Card players[numberOfPlayers];
 	Deck deck;
+
+	bool validAttack(const Positions pos) const;
 };
 
 Positions& operator++(Positions& position);
