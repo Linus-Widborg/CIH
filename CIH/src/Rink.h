@@ -28,9 +28,10 @@ public:
 	virtual ~Rink();
 	Card getPosition(const Positions pos) const;
 	void printRink() const;
-	void attack(const Positions pos, const Card card);
+	bool attack(const Positions pos, const Card card);
 	void replacePosition(const Positions pos, const Card card);
 	bool emptyPosition(const Positions pos) const;
+	Card getAttackingCard() throw (Deck::Empty_deck);
 
 private:
 	Card players[numberOfPlayers];

@@ -37,10 +37,13 @@ void Rink::printRink() const {
 	cout << "--------------" << endl;
 }
 
-void Rink::attack(const Positions pos, const Card card) {
+bool Rink::attack(const Positions pos, const Card card) {
+	bool attackSuccessful = false;
 	if (validAttack(pos) && card.getValue() > players[pos].getValue()) {
 		players[pos] = Card(zero, none);
+		attackSuccessful = true;
 	}
+	return attackSuccessful;
 }
 
 void Rink::replacePosition(const Positions pos, const Card card) {
@@ -49,6 +52,10 @@ void Rink::replacePosition(const Positions pos, const Card card) {
 
 bool Rink::emptyPosition(const Positions pos) const {
 	return players[pos].getValue() == zero;
+}
+
+Card Rink::getAttackingCard() throw (Deck::Empty_deck) {
+	return deck.getRandomCard();
 }
 
 bool Rink::validAttack(const Positions pos) const {
